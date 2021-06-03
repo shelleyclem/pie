@@ -108,10 +108,10 @@ router.post('/', middleware.validateSession, async (req, res) => {
   });
 
   router.put('/:id', async (req, res) => {
-    const {nameOfPie, baseOfPie, crust, timeToBake, servings, rating} = req.body;
+    const {nameOfPie, baseOfPie, crust, timeToBake, servings, ratings} = req.body;
     try {
       const piesUpdated = await PieModel.update(
-        {nameOfPie, baseOfPie, crust, timeToBake, servings, rating},
+        {nameOfPie, baseOfPie, crust, timeToBake, servings, ratings},
         {where: {id: req.params.id}}
       )
       res.status(200).json({
